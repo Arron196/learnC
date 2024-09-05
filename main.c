@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 void class4q3(void) {
@@ -40,7 +41,23 @@ void class5q2() {
     }
 }
 
+void class6q2() {
+    char *p;
+    int n;
+    scanf("%d", &n);
+    p = (char *) calloc(n, sizeof(char *));
+    if (p == NULL) {
+        perror("对p分配内存失败\n");
+        exit(-1);
+    }
+    char c;
+    scanf("%c", &c);
+    fgets(p, n, stdin);
+    printf("%s", p);
+    free(p);
+}
+
 int main(void) {
-    class5q2();
+    class6q2();
     return 0;
 }
