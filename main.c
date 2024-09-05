@@ -45,7 +45,7 @@ void class6q2() {
     char *p;
     int n;
     scanf("%d", &n);
-    p = (char *) calloc(n, sizeof(char *));
+    p = (char *) calloc(n, sizeof(char));
     if (p == NULL) {
         perror("对p分配内存失败\n");
         exit(-1);
@@ -56,8 +56,28 @@ void class6q2() {
     printf("%s", p);
     free(p);
 }
+void class7(void) {
+    int n = 0;
+    scanf("%d", &n);
+    if (n<=2) {
+        printf("%d", n);
+        return;
+    }
+    int *count = (int *) calloc(n, sizeof(int));
+    if (count==NULL) {
+        perror("class7中内存分配失败\n");
+        exit(-1);
+    }
+    count[0] = 1;
+    count[1] = 2;
+    for (int i = 2;i<=n-1;i++) {
+        count[i] = count[i-1] + count[i-2];
+    }
+    printf("%d", count[n-1]);
+    free(count);
+}
 
 int main(void) {
-    class6q2();
+    class7();
     return 0;
 }
