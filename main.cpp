@@ -77,7 +77,21 @@ void class7(void) {
     free(count);
 }
 
+void class8q2_att(char*& str) {
+    str = (char *) malloc(100);
+    if (str==NULL) {
+        perror("class8q2分配内存错误\n");
+        exit(-1);
+    }
+    fgets(str, 100, stdin);
+}
+void class8q2() {
+    char *str;
+    class8q2_att(str);
+    printf("%s", str);
+}
+
 int main(void) {
-    class7();
+    class8q2();
     return 0;
 }
