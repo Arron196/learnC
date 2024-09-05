@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 void class4q3(void) {
     int count = 0;
@@ -17,7 +18,29 @@ void class4q3(void) {
     printf("%d", count);
 }
 
+void class5q2() {
+    char str1[50];
+    char str2[50];
+    scanf("%s", str1);
+
+    const int len = strlen(str1);
+    for (int i = 0; i < len; i++) {
+        if (str1[i] != '\0') {
+            str2[len - 1 - i] = str1[i];
+        } else
+            break;
+    }
+    const int result = strcmp(str1, str2);
+    if (result < 0) {
+        printf("%d\n", -1);
+    } else if (result > 0) {
+        printf("%d\n", 1);
+    } else {
+        printf("%d\n", 0);
+    }
+}
+
 int main(void) {
-    class4q3();
+    class5q2();
     return 0;
 }
